@@ -1,0 +1,60 @@
+<section class="py-5" id="table">
+  <h2 class="main-color text-uppercase mx-auto text-center mb-3">Transaction info</h2>
+
+  <div #table class="rounded-3 overflow-hidden mx-5">
+
+    <p-table [value]="filterdTransaction">
+      <ng-template pTemplate="header">
+        <tr class="text-uppercase border-bottom Header">
+
+          <th class="secondary-color">
+            <div class="d-flex">
+              <input class="btn bg-transparent border-0 secondary-color text-uppercase fw-bold" id="Name" type="text" [(ngModel)]="customerNameFilter" (input)="filterByName()" placeholder=" search By Name">
+
+              <div class="d-flex align-items-center" pSortableColumn="customer_name">
+                <p-sortIcon field="customer_name" class="px-3"></p-sortIcon>
+              </div>
+            </div>
+
+          </th>
+
+          <th class="secondary-color" pSortableColumn="date">
+            <div class="d-flex align-items-center">
+              Transaction Date
+              <p-sortIcon field="date" class="px-3"></p-sortIcon>
+            </div>
+          </th>
+
+          <th class="secondary-color">
+            <div class="d-flex justify-item-center">
+              <input class="btn bg-transparent border-0 secondary-color text-uppercase fw-bold" id="Amount" type="number" [(ngModel)]="customerAmountFilter" (input)="filterByAmount()" placeholder=" search By Amount">
+              <div class="d-flex align-items-center" pSortableColumn="amount">
+                <p-sortIcon field="amount" class="px-3"></p-sortIcon>
+              </div>
+            </div>
+
+          </th>
+
+          <th class="secondary-color">
+            <div class="d-flex align-items-center">
+              Action
+            </div>
+          </th>
+
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-filteredTransaction>
+        <tr class="text-white">
+            <td class="py-3 ps-5 border-bottom">{{ filteredTransaction.customer_name }}</td>
+            <td class="py-3 ps-5 border-bottom">{{ filteredTransaction.date }}</td>
+            <td class="py-3 ps-5 border-bottom">{{ filteredTransaction.amount }}</td>
+            <td class="py-3 ps-5 border-bottom">
+              <button class="btn btn-sec" [routerLink]="['/graph',filteredTransaction.customer_id]"> Show customer data </button>
+            </td>
+        </tr>
+    </ng-template>
+
+    </p-table>
+  </div>
+</section>

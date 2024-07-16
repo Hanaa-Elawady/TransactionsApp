@@ -1,0 +1,31 @@
+.main-color,
+.main-color:focus, 
+.main-color:active, 
+.main-color:visited{
+    color: #f42a14 !important;
+}
+.secondary-color,
+.secondary-color:focus, 
+.secondary-color:active, 
+.secondary-color:visited{
+    color: #FF9B50 !important; 
+}
+.bg-main{
+    background-color: #f42a14;
+}
+.btn-sec{
+    background-color: #FFBB5C !important;
+}
+.btn-sec-dark{
+    background-color: #ba925a !important;
+}
+input::placeholder {
+    color: #FF9B50;
+    opacity: 1;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

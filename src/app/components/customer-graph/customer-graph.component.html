@@ -1,0 +1,23 @@
+<section class="p-5 text-center" id="graph">
+<div class="d-flex flex-column justify-content-between h-100">
+  <h2 class="main-color text-uppercase mx-auto text-center mb-3">{{getCustomerName(id)}} Transaction Graph</h2>
+
+  <div style="text-align:center">  
+    <div class=" graph w-100 mx-auto">
+      <p-chart  type="bar" [data]="data" [options]="options"></p-chart>
+    </div>
+  </div>
+  
+  <div class="col-md-4 mx-auto">
+    <label for="mySelect" class="secondary-color fw-bold text-uppercase">Choose Another Customer:</label>
+    <select id="mySelect" [(ngModel)]="id" name="selectedOption" (change)="getFirstAndLastDates(transactions)" class="btn btn-sec ms-3 my-3">
+      <option class="btn-sec-dark" *ngFor="let option of customers" [value]="option.id" [selected]="id == option.id">{{ option.name}}</option>
+    </select>
+  </div>
+
+  <button routerLink="/table" class="btn btn-sec ms-auto ">Back to transactions</button>
+
+</div>
+
+</section>
+  
